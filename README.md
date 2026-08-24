@@ -5,9 +5,11 @@
 ![Blue Team](https://img.shields.io/badge/Blue%20Team-SOC%20Portfolio-0d6efd)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey)
 
-> **Blue Team / SOC Portfolio — Project 1**  
+> **Blue Team / SOC Portfolio — Project 1**
 > Parses SSH auth logs and Apache/Nginx access logs, detects threat patterns,
 > and generates structured alert reports in text, JSON, or Markdown.
+
+![demo — live SSH brute-force analysis](docs/demo.gif)
 
 ---
 
@@ -30,14 +32,42 @@
 
 ---
 
+## 🎬 Live demo
+
+The demo above runs against a **live attack generator** — no canned logs:
+
+```bash
+# terminal 1 — attacks land in real time (fictional, local-only)
+./samples/live_attack.sh /tmp/live_auth.log
+
+# terminal 2 — analyze whenever you want
+python log_analyzer.py /tmp/live_auth.log --type ssh --min-severity HIGH
+```
+
+Every run is different — the generator randomizes attacker IPs, usernames,
+burst sizes, and occasionally lets a brute-force **succeed** (the CRITICAL case
+that matters most in real SOC work).
+
+Ready-made attack-pattern samples are included:
+
+```bash
+python log_analyzer.py samples/ssh_auth.log    # brute-force + credential stuffing
+python log_analyzer.py samples/http_access.log # directory scan + suspicious methods
+```
+
+---
+
 ## 📁 Project Structure
 
 ```
 log-analyzer/
-├── log_analyzer.py          # Main script
+├── log_analyzer.py            # Main script
 ├── samples/
-│   ├── auth.log             # Sample SSH log for testing
-│   └── access.log           # Sample HTTP log for testing
+│   ├── ssh_auth.log           # Sample SSH log — brute-force + stuffing
+│   ├── http_access.log        # Sample HTTP log — 404 scan + odd methods
+│   └── live_attack.sh         # Real-time attack generator (local, fictional)
+├── docs/
+│   └── demo.gif               # Demo recording
 ├── README.md
 └── EXPLICACAO_TECNICA_COMPLETA.md
 ```
@@ -48,28 +78,28 @@ log-analyzer/
 
 ```bash
 # Clone the repository
-git clone https://github.com/youruser/log-analyzer.git
-cd log-analyzer
+git clone https://github.com/Lowingx/LogAnalyzer.git
+cd LogAnalyzer
 
 # No dependencies needed — pure Python 3.10+
 
 # Analyze a sample SSH log
-python log_analyzer.py samples/auth.log
+python log_analyzer.py samples/ssh_auth.log
 
 # Analyze an HTTP access log
-python log_analyzer.py samples/access.log
+python log_analyzer.py samples/http_access.log
 
 # Analyze multiple files at once
-python log_analyzer.py samples/auth.log samples/access.log
+python log_analyzer.py samples/ssh_auth.log samples/http_access.log
 
 # Export a JSON report
-python log_analyzer.py samples/auth.log --format json --output alerts.json
+python log_analyzer.py samples/ssh_auth.log --format json --output alerts.json
 
 # Export a Markdown report
-python log_analyzer.py samples/access.log --format markdown --output report.md
+python log_analyzer.py samples/http_access.log --format markdown --output report.md
 
 # Show only CRITICAL and HIGH alerts
-python log_analyzer.py samples/auth.log --min-severity HIGH
+python log_analyzer.py samples/ssh_auth.log --min-severity HIGH
 ```
 
 ---
